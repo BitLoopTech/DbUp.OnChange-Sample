@@ -1,0 +1,5 @@
+﻿CREATE TABLE TestTable
+(
+	ID		INT PRIMARY KEY IDENTITY(1,1), 
+	[Name]	VARCHAR(50)
+)
