@@ -20,7 +20,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  
+  <!-- copy Scripts folder to output after publish (`dotnet publish`) -->
+  <ItemGroup>
+    <Content Include="Scripts\**" CopyToPublishDirectory="Always"/>
+  </ItemGroup>
 
+  <!-- copy Scripts folder to output after build (`dotnet build` or VS build) -->
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="XCOPY &quot;$(SolutionDir)Scripts&quot; &quot;$(TargetDir)\Scripts\&quot; /S /Y" />
   </Target>
